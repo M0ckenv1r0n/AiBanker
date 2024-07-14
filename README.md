@@ -15,7 +15,7 @@ AI Banker is an advanced financial management tool designed to help users track 
 
 ## Technologies Used
 
-- **Backend**: Python, Flask, FastAPI
+- **Backend**: Python
 - **Database**: SQLite
 - **AI**: Llama 3 hosted on Google Colab
 - **Frontend**: Customtkinter, Tkinter
