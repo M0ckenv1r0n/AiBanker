@@ -1,8 +1,5 @@
 import customtkinter as ctk
-from tqdm import tk
-
 from settings import *
-from tkinter import Canvas
 from PIL import Image
 
 
