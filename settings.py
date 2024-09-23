@@ -1,9 +1,3 @@
-# import tkFont
-#
-#
-# helv36 = tkFont.Font(family="Helvetica",size=36,weight="bold")
-
-
 BACKGROUND_COLOR = '#242424'
 WHITE = '#dee3ed'
 GREY = '#242526'
