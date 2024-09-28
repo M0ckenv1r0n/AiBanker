@@ -27,9 +27,9 @@ class MinorFrameLower(ctk.CTkFrame):
 
         self.user_input_entry.place(relx=0.49, rely=0.95, anchor=ctk.CENTER, relwidth=0.79)
 
-        self.send_button = ctk.CTkButton(self.user_input_entry, text='', image=self.send_icon,
+        self.send_button = ctk.CTkButton(self.user_input_entry, text='Send  📤',
                                          command=self.get_user_input, fg_color=GREY, hover_color=DARK_DARK_GREY,
-                                         width=20, height=20)
+                                         width=20, height=30)
         self.send_button.place(relx=0.921, rely=0.49, anchor=ctk.CENTER)
 
     def on_key_release(self, event):
@@ -83,9 +83,7 @@ class AiAnswerFrame(ctk.CTkFrame):
 
         self.banker_answer_frame = AiAnswerSubFrame(self,response)
 
-        self.banker_photo = ctk.CTkImage(light_image=Image.open("img/icons/banker_icon.png"),
-                                         size=(42, 42))
-        self.banker = ctk.CTkLabel(self, image=self.banker_photo, text='', fg_color=DARK_DARK_GREY, width=32, height=32,
+        self.banker = ctk.CTkLabel(self, text='🤖',font=(FONT_REGULAR, 32), fg_color=DARK_DARK_GREY, width=32, height=32,
                                    corner_radius=0)
         self.banker.place(relx=0.02, rely=0.02)
 
@@ -103,11 +101,8 @@ class AiAnswerSubFrame(ctk.CTkFrame):
         self.textbox.pack(padx=(30, 10), pady=(15, 0), fill='x')
         self.textbox.configure(height=15 * lines)
 
-        self.copy_icon = ctk.CTkImage(light_image=Image.open(
-            "./img/icons/copy_icon.png"), size=(18, 18))
-
-        self.copy_btn = ctk.CTkButton(self, text='Copy', font=(FONT_REGULAR, 12), width=80,
-                                      height=30, image=self.copy_icon, corner_radius=10, fg_color=DARK_DARK_GREY,
+        self.copy_btn = ctk.CTkButton(self, text="📋 Copy", font=(FONT_REGULAR, 12), width=80,
+                                      height=30, corner_radius=10, fg_color=DARK_DARK_GREY,
                                       hover_color=GREY, command=self.copy)
         self.copy_btn.pack(anchor='e', padx=10, pady=10)
 
@@ -143,9 +138,7 @@ class UserInputFrame(ctk.CTkFrame):
 
         self.user_answer_frame = UserInputSubFrame(self, user_input)
 
-        self.user_photo = ctk.CTkImage(light_image=Image.open("img/icons/user_icon.png"),
-                                       size=(42, 42))
-        self.user = ctk.CTkLabel(self, image=self.user_photo, text='', fg_color=DARK_DARK_GREY, width=32, height=32,
+        self.user = ctk.CTkLabel(self, text='👤',font=(FONT_REGULAR, 32), fg_color=DARK_DARK_GREY, width=32, height=32,
                                  corner_radius=0)
         self.user.place(relx=0.82, rely=0.01)
 
@@ -165,11 +158,8 @@ class UserInputSubFrame(ctk.CTkFrame):
 
 
 
-        self.copy_icon = ctk.CTkImage(light_image=Image.open(
-            "./img/icons/copy_icon.png"), size=(18, 18))
-
-        self.copy_btn = ctk.CTkButton(self, text='Copy', font=(FONT_REGULAR, 12), width=80,
-                                      height=30, image=self.copy_icon, corner_radius=10, fg_color=DARK_DARK_GREY,
+        self.copy_btn = ctk.CTkButton(self, text='Copy 📋', font=(FONT_REGULAR, 12), width=80,
+                                      height=30, corner_radius=10, fg_color=DARK_DARK_GREY,
                                       hover_color=GREY, command=self.copy)
         self.copy_btn.pack(anchor='w', padx=10, pady=10)
 
