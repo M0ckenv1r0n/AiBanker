@@ -26,7 +26,7 @@ AI Banker is an advanced financial management tool designed to help users track 
 ### Prerequisites
 
 - Python 3.7 or higher
-- pip (Python package installer)
+- pip3
 
 ### Steps
 
