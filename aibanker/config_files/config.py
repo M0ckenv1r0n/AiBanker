@@ -1,32 +1,14 @@
-BACKGROUND_COLOR = '#242424'
-WHITE = '#dee3ed'
-GREY = '#242526'
-BLUE = '#0092ca'
+from pathlib import Path
 
-SLIDER_BG = '#64686b'
-CLOSE_RED = '#8a0606'
 
-DARK_GREY = '#18191A'
-DARK_DARK_GREY = '#0e0f0f'
-LIGHT_GREY = '#757575'
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-BLACK = 'black'
-GREEN = '#558861'
-YELLOW = '#262833'
 
-FONT_REGULAR = 'futura'
-FONT_BOLD = 'roboto'
-FONT_LIGHT = 'roboto'
-FONT_MEDIUM = 'roboto'
+DATA_DIR = BASE_DIR / "data"
+DB_FILE_CREDENTIALS = DATA_DIR / "app.db"
+DB_EXPENSE_FILE = DATA_DIR / "app_.db"
 
-PAS_PURPLE = '#7E8CE0'
-PAS_PURPLE_LIGHT = '#a7b3fc'
-PAS_GREEN = '#4ACFAC'
-PAS_GREEN_LIGHT = '#a4e7d5'
-PAS_RED = '#f97c7c'
-PAS_RED_LIGHT = '#fdaaaa'
-PAS_ORANGE = '#f0c58c'
-PAS_ORANGE_LIGHT = '#ffe8c7'
+
 
 OPTION_DICT = {
     "Food and Drinks": '#4ACFAC',  # PAS_GREEN
