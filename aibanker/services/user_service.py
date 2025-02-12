@@ -99,7 +99,7 @@ class UserService:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 cursor.execute("""
-                    SELECT daily_limit, monthly_limit, currency
+                    SELECT daily_limit, monthly_limit
                     FROM users WHERE username = ?
                 """, (username,))
                 row = cursor.fetchone()
@@ -111,12 +111,30 @@ class UserService:
             return {
                 "daily_limit": row[0],
                 "monthly_limit": row[1],
-                "currency": row[2]
             }
         except Exception as e:
             logger.error("Error fetching limits for user '%s': %s", username, e)
             return None
+        
+    def get_user_currency(self, username: str) -> str:
+        logger.debug("Fetching currency for user '%s'.", username)
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    SELECT currency
+                    FROM users WHERE username = ?
+                """, (username,))
+                row = cursor.fetchone()
 
+            if not row:
+                logger.debug("No currency data found for user '%s'.", username)
+                return None
+            return row[0]
+        except Exception as e:
+            logger.error("Error currency for user '%s': %s", username, e)
+            return None
+        
     def update_user_limits(
         self,
         username: str,
