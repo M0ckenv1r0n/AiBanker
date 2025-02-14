@@ -204,4 +204,26 @@ class ExpenseService:
         except Exception as e:
             logger.error("Error retrieving current month expenses for user '%s': %s", self.username, e)
             return []
+        
+
+    def get_expenses_for_period(self, start_date: str, end_date: str) -> List[Tuple[Any, ...]]:
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cur = conn.cursor()
+                cur.execute(
+                    """
+                    SELECT id, username, amount, category, description, date
+                    FROM expenses
+                    WHERE username = ?
+                      AND date BETWEEN ? AND ?
+                    ORDER BY date DESC
+                    """,
+                    (self.username, start_date, end_date),
+                )
+                rows = cur.fetchall()
+            return rows
+        except Exception as e:
+            logger.error("Error retrieving expenses for period %s to %s for user '%s': %s", start_date, end_date, self.username, e)
+            return []
+
 
