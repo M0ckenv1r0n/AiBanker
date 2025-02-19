@@ -17,24 +17,5 @@ def main():
     logger.info("Launching GUI...")
     run_gui(user_service)
 
-    # logger.debug("Initializing application configuration...")
-
-    # if len(sys.argv) < 2:
-    #     logger.warning("No mode provided. Usage: python -m aibanker [cli|gui]")
-    #     sys.exit(1)
-
-    # mode = sys.argv[1].lower()
-    # logger.info(f"Running in {mode} mode...")
-
-    # if mode == "cli":
-    #     pass
-
-    # elif mode == "gui":
-    #     logger.info("Launching GUI...")
-    #     run_gui(user_service)
-    # else:
-    #     logger.error("Invalid mode: %s. Use 'cli' or 'gui'.", mode)
-    #     sys.exit(1)
-
 if __name__ == "__main__":
     main()

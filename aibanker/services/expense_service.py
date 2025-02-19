@@ -37,6 +37,17 @@ class ExpenseService:
     def add_expense(
         self, amount: float, category: str, date: str, description: str = ""
     ) -> bool:
+        """
+        Adds a new expense entry.
+
+        Args:
+        amount (float): The monetary value of the expense.
+        category (str): The expense category, which must be one of the approved categories.
+        date (str): The date of the expense in 'YYYY-MM-DD' format.
+
+        Returns:
+        bool: True if the expense was added successfully, otherwise False.
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()
@@ -62,6 +73,14 @@ class ExpenseService:
             return False
 
     def list_expenses(self) -> List[Tuple[Any, ...]]:
+        """
+    Lists all recorded expenses.
+
+    This function returns a comprehensive list of all expense entries stored for the user.
+    
+    Returns:
+        List[Tuple[Any, ...]]: A list where each tuple contains details of an individual expense entry.
+    """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()
@@ -145,6 +164,15 @@ class ExpenseService:
 
 
     def get_recent_expenses(self, limit: int = 10) -> List[Tuple[Any, ...]]:
+        """
+        Retrieves the most recent expense entries.
+
+        Args:
+        limit (int): The number of most recent expense entries to retrieve.
+
+        Returns:
+        List[Tuple[Any, ...]]: A list of tuples representing the 'n' most recent expenses.
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()
@@ -165,6 +193,14 @@ class ExpenseService:
             return []
         
     def get_expenses_for_current_day(self) -> List[Tuple[Any, ...]]:
+        """
+        Retrieves the user's daily spendings.
+
+        This function collects expense data for the current day and returns it as a list of tuples, with each tuple representing an individual expense entry.
+
+        Returns:
+        List[Tuple[Any, ...]]: A list of tuples containing details of expenses made today.
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()
@@ -186,6 +222,14 @@ class ExpenseService:
         
         
     def get_expenses_for_current_month(self) -> List[Tuple[Any, ...]]:
+        """
+        Retrieves the user's monthly spendings.
+
+        This function gathers expense data for the current month and returns it as a list of tuples, where each tuple represents a spending entry.
+
+        Returns:
+        List[Tuple[Any, ...]]: A list of tuples detailing the expenses incurred during the current month.
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()
@@ -207,6 +251,16 @@ class ExpenseService:
         
 
     def get_expenses_for_period(self, start_date: str, end_date: str) -> List[Tuple[Any, ...]]:
+        """
+        Retrieves expenses between specified dates.
+
+        Args:
+        start_date (str): The start date in 'YYYY-MM-DD' format.
+        end_date (str): The end date in 'YYYY-MM-DD' format.
+
+        Returns:
+        List[Tuple[Any, ...]]: A list of tuples containing expense records within the specified date range.
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cur = conn.cursor()

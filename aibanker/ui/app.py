@@ -48,7 +48,10 @@ class App(ctk.CTk):
         self.frames = {}
         # self.frames["LoginFrame"].place_forget()
 
-        user_config = self.user_service.get_user_limits(username)
+        get_user_limits = self.user_service.get_user_limits
+        get_user_currency = self.user_service.get_user_currency
+
+        print(get_user_limits, "\n", get_user_currency)
 
         self.expense_service = ExpenseService(username, db_path=DB_EXPENSE_FILE)
     
@@ -56,12 +59,9 @@ class App(ctk.CTk):
             parent=self, 
             username=username, 
             expense_service=self.expense_service,
-            user_config = user_config
+            get_user_limits = get_user_limits,
+            get_user_currency = get_user_currency
         )
-
-        
-
-
 
 def run_gui(user_service):
     app = App(user_service)

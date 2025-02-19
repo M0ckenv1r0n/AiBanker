@@ -23,21 +23,17 @@ def count_lines_in_message(message: str, multiplier: int = 1) -> int:
     chars = math.ceil(32*multiplier)
 
     for char in message:
-
         char_count_in_line += 1
-
         if char != ' ':
             current_word_length += 1
         else:
             current_word_length = 0
-
         if char_count_in_line == chars:
             line_count += 1
             if char == " ":
                 char_count_in_line = 0
             else:
                 char_count_in_line = current_word_length
-
         if char == '\n':
             current_word_length = 0
             line_count += 1
@@ -46,12 +42,12 @@ def count_lines_in_message(message: str, multiplier: int = 1) -> int:
     return line_count
 
 class ChatFrame(ctk.CTkFrame):
-    def __init__(self, parent, ai_response):
+    def __init__(self, parent, llm_add_message):
         super().__init__(master=parent, fg_color=DARK_DARK_GREY,
                          border_width=0, corner_radius=0)
         self.grid(column=2, row=1, sticky='nsew')
 
-        self.ai_response = ai_response
+        self.llm_add_message = llm_add_message
 
         self.name_label = ctk.CTkLabel(self, text="AI Adviser", font=(FONT_REGULAR, 18),
                                        text_color=BLACK, fg_color=PAS_PURPLE, corner_radius=18, height=35)
@@ -97,7 +93,7 @@ class ChatFrame(ctk.CTkFrame):
 
         user_msg = UserInputFrame(self.scrollable_frame, user_input.replace('\n', ''))  # Creates frame with sanitized user input
 
-        response = self.ai_response.send_request(user_input)
+        response = self.llm_add_message(user_input)
 
 
         llm_answer_msg= AiAnswerFrame(self.scrollable_frame, response) if response else AiAnswerFrame(self.scrollable_frame, 'Request failed')
