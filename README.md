@@ -2,22 +2,30 @@
 
 ## Overview
 
-AI Banker is an advanced financial management tool designed to help users track expenses, manage budgets, and receive personalized financial advice through an AI-powered chatbot.
+AI Banker is an AI-powered financial management tool that leverages LangGraph for intelligent multi-agent interactions, enabling seamless and efficient expense tracking.
 
-## Features
+## LLM Agent Features
+
+- **Chat-Based Expense Logging**: Add new expenses effortlessly by chatting with the AI.
+
+- **Instant Spending Insights**: Retrieve daily, monthly, or custom period expense summaries right away in the chat.
+
+- **Budget Limit Monitoring**: Automatically track expenses against set spending limits.
+
+- **Smart Financial Recommendations**: Get personalized tips to optimize spending habits.
+
+## Just Features
 
 - **Secure Authentication**: User authentication with encrypted passwords.
 - **Expense Tracking**: Log, categorize, and analyze expenses.
-- **AI Chatbot**: Get financial insights and advice from an intelligent chatbot.
 - **Data Visualization**: Interactive graphs for visualizing financial data.
 - **Scalability**: Efficient data handling and user interaction.
 - **Cross-Platform Compatibility**: Works seamlessly on multiple operating systems.
 
 ## Technologies Used
 
-- **Backend**: Python
+- **Backend**: Python, LangGraph, LangChain
 - **Database**: SQLite
-- **AI**: Llama 3 hosted on Google Colab
 - **Frontend**: Customtkinter, Tkinter
 - **Data Visualization**: Matplotlib
 
@@ -44,16 +52,14 @@ AI Banker is an advanced financial management tool designed to help users track 
    ```bash
    pip install -r requirements.txt
 
-4. **Run the application:**:
+4. **Set OpenAI API var**:
    ```bash
-   python main.py
+   export OPENAI_API_KEY="your_api_key_here"
 
-## Usage
+5. **Run the application:**:
+   ```bash
+   python -m aibanker
 
-- **Sign Up/Login**: Create a new account or log in to an existing one.
-- **Track Expenses**: Add and categorize your expenses.
-- **AI Chatbot**: Interact with the AI chatbot for financial advice.
-- **View Reports**: Generate and view detailed visual reports of your financial data.
 
 ## Contributing
 
@@ -68,10 +74,6 @@ We welcome contributions! Please follow these steps:
 ## License
 
 This project is licensed under the AGPL-3.0 License. See the LICENSE file for details.
-
-## Contact
-
-For any questions or feedback, please contact [Dmytro Yermolenko](mailto:contact@dmytro-yermolenko.com).
 
 
 
