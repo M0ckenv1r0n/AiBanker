@@ -31,27 +31,23 @@ class App(ctk.CTk):
         self.columnconfigure(1, weight=10, uniform='a')
         self.columnconfigure(2, weight=8, uniform='a')
 
-        self.on_login_success ("Dmjkef@33434")
         self.frames = {}
 
-        # self.frames["LoginFrame"] = LoginFrame(
-        #     parent=self, 
-        #     user_service=self.user_service,
-        #     on_login_success=self.on_login_success
-        # )
+        self.frames["LoginFrame"] = LoginFrame(
+            parent=self, 
+            user_service=self.user_service,
+            on_login_success=self.on_login_success
+        )
 
 
 
     def on_login_success(self, username):
         logger.info("User '%s' logged in successfully.", username)
 
-        self.frames = {}
-        # self.frames["LoginFrame"].place_forget()
+        self.frames["LoginFrame"].place_forget()
 
         get_user_limits = self.user_service.get_user_limits
         get_user_currency = self.user_service.get_user_currency
-
-        print(get_user_limits, "\n", get_user_currency)
 
         self.expense_service = ExpenseService(username, db_path=DB_EXPENSE_FILE)
     

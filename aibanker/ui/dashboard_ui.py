@@ -30,7 +30,6 @@ class DashboardFrame:
         self.expense_service = expense_service
 
         self._init_user_config()
-        
         self.diagram_service = DiagramDrawer()
 
         tools = [
@@ -45,9 +44,7 @@ class DashboardFrame:
             currency= self.get_user_currency(), tools=tools)       
 
         self.draw_diagrams()
-
         logger.info("Initializing DashboardFrame for user '%s'", self.username)
-        
         self.frames: Dict[str, Any] = {}
         self._init_frames()
 

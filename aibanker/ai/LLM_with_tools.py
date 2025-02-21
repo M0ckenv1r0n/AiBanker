@@ -56,7 +56,7 @@ class LLMChat:
         # Check if there are any AI messages; if so, take only the last one
         if ai_messages:
             answer = ai_messages[-1].content
-            clean_text = lambda s: re.sub(r'[#*_~`>\-\[\]\(\)\\\n]', '', s)
+            clean_text = lambda s: re.sub(r'[#*_~`>\-\[\]\(\)\\\n]', '', s) #temp solution of markdown
             answer =clean_text(answer)
         else:
 
